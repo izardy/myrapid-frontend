@@ -1,0 +1,86 @@
+{% extends 'base.html'%}
+
+{% block header %}
+  <h1>{% block title %}Add To Do{% endblock %}</h1>
+{% endblock %}
+
+{% block content%}
+<body>
+   <p></p>
+      <div class="container-fluid">
+         <div class="card rounded-3">
+            <div class="card-body p-4">
+
+               <h4 class="text-center"><span lang="en">Update User Profil</span><span lang="ms">Kemaskini Profil Pengguna</span></h4>
+
+               <p></p>
+
+                  <form action="" method="post" style="font-size: small;">
+
+                     <div class="row mb-4">
+                        <div class="col-md-6 mb-2">
+                           <label for="username"><span lang="en">User ID</span><span lang="ms">ID Pengguna</span></label><br>
+                           <div>{{ user['username'] }}</div>
+                        </div>
+                        <div class="col-md-6">
+                           <label for="nickname"><span lang="en">User Nickname</span><span lang="ms">Nama Panggilan</span></label><br>
+                           <div style="text-transform:uppercase">{{ user['nickname'] }}</div>
+                        </div>
+                     </div>
+
+                     <div class="row mb-2">
+                        <div class="col-md-6 mb-2">
+                           <label for="old_password"><span lang="en">Old Password</span><span lang="ms">Kata Laluan Lama</span></label><br>
+                           <input name="old_password" id="old_password" type="password" class="form-control" value="{{ request.form['old_password']}}" required>
+                        </div>
+                        <div class="col-md-6">
+                           <label for="new_password"><span lang="en">New Password</span><span lang="ms">Kata Laluan Baru</span></label><br>
+                           <input name="new_password" id="new_password" type="password" class="form-control" value="{{ request.form['new_password']}}" required>
+                        </div>
+                     </div>
+                     
+                     <div class="row mb-2">
+                        <div class="col-md-6 mb-4 input-group-md">
+                           <link rel="stylesheet" href="{{ url_for('static', filename='css/intlTelInput.css') }}">
+                           <script type="text/javascript" src="{{ url_for('static', filename='js/intlTelInput.min.js') }}"></script>
+                           <script type="text/javascript" src="{{ url_for('static', filename='js/utils.js') }}"></script>
+                           <label for="phone"><span lang="en">Phone</span><span lang="ms">Phone</span></label><br>
+                           <input type="tel" id="phone" name="phone" placeholder="Phone Number" class="form-control" value="{{ request.form['phone'] or user['phone'] }}" required="">
+                           <script>
+                             const input = document.querySelector("#phone");
+                             window.intlTelInput(input, {
+                               utilsScript: "/intl-tel-input/js/utils.js?",
+                             });
+                           </script>        
+                        </div>
+                        <div class="col-md-6 mb-2">
+                           <label for="countryInput"><span lang="en">Country</span><span lang="ms">Negara</span></label><br>
+                           <input name="countryInput" id="countryInput" type="text" class="form-control" value="{{ request.form['countryInput'] or user['countryInput'] }}" required>
+                        </div>
+                     </div>
+
+
+                     <div class="row mb-2">
+                        <div class="col-md-6 mb-4 input-group-md">
+                           <label for="stateInput"><span lang="en">State</span><span lang="ms">Negeri</span></label><br>
+                           <input name="stateInput" id="stateInput" type="text" class="form-control" value="{{ request.form['stateInput'] or user['stateInput'] }}" required>
+                        </div>
+                        <div class="col-md-6 mb-4 input-group-md">
+                           <label for="districtInput"><span lang="en">District</span><span lang="ms">Daerah</span></label><br>
+                           <input name="districtInput" id="districtInput" type="text" class="form-control" value="{{ request.form['districtInput'] or user['districtInput'] }}" required>
+                        </div>
+                     </div>
+                                       
+                  </form>
+
+                  <div class="text-center">
+                     <button type="submit" class="btn btn-md btn-primary" value="Save"><span lang="en">Submit</span><span lang="ms">Hantar</span></button>
+                  </div>
+
+            </div>
+         </div>
+      </div>
+</body>
+
+
+{% endblock%}
