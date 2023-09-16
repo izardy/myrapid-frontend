@@ -10,22 +10,9 @@
         <div class="container-fluid">
 
             <div>
-                <a class="navbar-brand" style="color: #3498db;" href="{{ url_for('dashboard.index') }}"><img src="{{ url_for('static', filename='img/myrapid.svg') }}" alt="" width="119" height="24"></a>
+                <a class="navbar-brand" href="{{ url_for('dashboard.index') }}"><img src="{{ url_for('static', filename='img/myrapid.svg') }}" alt="" width="119" height="24"></a>
             </div>
 
-            <!--div>
-                <select style="font-size: smaller;" id="lang-switch">
-                    <option style="font-size: smaller;" value="en">EN</option>
-                    <option style="font-size: smaller;" value="ms">BM</option>
-                </select>
-            </div-->
-
-            <div class="switch">
-                <input id="lang-switch" class="check-toggle check-toggle-round-flat" type="checkbox">
-                <label for="lang-switch"></label>
-                <span class="on">EN</span>
-                <span class="off">BM</span>
-            </div>
             
             <ul class="navbar-nav ms-auto">
 
