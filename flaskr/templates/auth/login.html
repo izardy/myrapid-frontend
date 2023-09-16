@@ -43,7 +43,17 @@
             <button class="btn btn-md btn-primary btn-block mb-2" type="submit" value="Log In">Sign in</button>
           </div>
 
-
+          <div class="text-center">
+            <p>Don't have an account? <a href="{{ url_for('auth.register') }}" class="link-danger">Register</a></p>
+            <p>or sign up with:</p>
+            <button type="button" class="btn btn-link btn-floating mx-1">
+              <i><svg xmlns="http://www.w3.org/2000/svg" fill="#3498db" width="25" height="25" viewBox="0 0 24 24">
+                <title>Facebook</title>
+                <rect width="24" height="24" fill="none"/>
+                <path d="M5,3H19a2,2,0,0,1,2,2V19a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2V5A2,2,0,0,1,5,3M18,5H15.5A3.5,3.5,0,0,0,12,8.5V11H10v3h2v7h3V14h3V11H15V9a1,1,0,0,1,1-1h2Z"/>
+              </svg></i>
+            </button>
+          </div>
 
           <p class="mt-5 mb-2 text-muted" >&copy; 2022-2023</p>
         </div>
