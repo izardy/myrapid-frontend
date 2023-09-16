@@ -1,0 +1,36 @@
+<div ng-controller='hits' ng-init="init()">
+    <style>
+        .hits-panel-list {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            line-height: normal;
+        }
+        
+        .hits-panel-metric-label {
+            font-size: 10pt;
+        }
+        
+        .hits-panel-metric-value {
+            font-weight: bold;
+        }
+    </style>
+    
+
+    <div ng-show="panel.chart == 'total'" class="hits-panel-list" ng-style="panel.style">
+        <div class="hits-panel-metric" ng-repeat="metric in panel.metrics">
+            <div class="hits-panel-metric-value">{{dashboard.numberWithCommas(metric.value)}}</div>
+            <div class="hits-panel-metric-label">{{metric.label}}</div>
+        </div>
+
+        <div class="row-fluid nomargin">
+            <a style="color: #F7F7F7;font-size: 25pt;">Hits</a>
+        </div>
+
+    </div>
+ 
+
+
+
+</div>
