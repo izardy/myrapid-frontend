@@ -33,9 +33,9 @@ function (Settings) {
      */
 
     // Specify Solr server and core to store the data.
-    solr: "http://visualistic.net:2095/solr/",
-    solr_core: "logs",
-    timefield: "timestamp_tdt",
+    // solr: "http://visualistic.net:2095/solr/",
+    // solr_core: "logs",
+    // timefield: "timestamp_tdt",
 
     /**
      * The default Solr index to use for storing objects internal to Banana, such as 
