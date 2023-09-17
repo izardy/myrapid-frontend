@@ -59,7 +59,7 @@
     "save_as_public": true
   },
   "solr": {
-    "server": "https://bzint.bankislam.com.my:8984/solr/",
+    "server": "http://202.75.45.143:8984/solr/",
     "core_name": "",
     "core_list": [
       ""

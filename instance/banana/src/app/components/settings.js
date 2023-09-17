@@ -18,7 +18,7 @@ function (_) {
       panel_names: [],
       banana_index: "system_banana",
       // uncomment the following line to specify the URL of banana-int
-      banana_server: "http://172.22.44.164:8984/solr/",
+      banana_server: "http://202.75.45.143:8984/solr/",
 
       // Lucidworks Fusion settings
       USE_FUSION: true,  
