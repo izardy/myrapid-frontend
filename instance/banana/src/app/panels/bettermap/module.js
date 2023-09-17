@@ -153,7 +153,7 @@ function (angular, app, _, L, localRequire) {
         var query_size = $scope.panel.size;
         var wt_json = '&wt=json';
         var rows_limit;
-        var sorting = '&sort=' + filterSrv.getTimeField() + ' desc'; // Only get the latest data, sorted by time field.
+        //var sorting = '&sort=' + filterSrv.getTimeField() + ' desc'; // Only get the latest data, sorted by time field.
 
         // set the size of query result
         if (query_size !== undefined && query_size !== 0) {
