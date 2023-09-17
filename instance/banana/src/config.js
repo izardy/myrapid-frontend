@@ -33,7 +33,7 @@ function (Settings) {
      */
 
     // Specify Solr server and core to store the data.
-    solr: "http://localhost:8983/solr/",
+    solr: "http://visualistic.net:2095/solr/",
     solr_core: "logs",
     timefield: "timestamp_tdt",
 
