@@ -55,7 +55,7 @@ function (Settings) {
     // Also, you need to uncomment this same line in src/app/components/settings.js to enable banana_server config.
     // Reference: https://github.com/lucidworks/banana/tree/fusion/resources/enable-cors
     //
-    banana_server: "https://bzint.bankislam.com.my:8984/solr/" ,
+    banana_server: "http://visualistic.net:2095/solr/" ,
     // banana_server: "http://172.22.44.164:8984/solr/" ,
 
     /**
