@@ -38,20 +38,35 @@ def login_required(view):
         return view(**kwargs)
     return wrapped_view
 
-#################################################################################### [PAGE MAIN]
+#################################################################################### [DEPOT INFO AS MAIN PAGE]
 
 @bp.route('/')
 @login_required
 def index():
-    return render_template('dashboard/index.html')
-#################################################################################### [HOSTING MAIN]
+    return render_template('dashboard/depot.html')
 
-@bp.route('/hosting')
+#################################################################################### [CAPTAIN INFO]
+
+@bp.route('/depot')
 @login_required
-def hosting():
-    return render_template('dashboard/hosting.html')
+def captain():
+    return render_template('dashboard/captain.html')
 
-#################################################################################### [SHOW HOSTING]
+#################################################################################### [BAS INFO]
+
+@bp.route('/bas')
+@login_required
+def bas():
+    return render_template('dashboard/bas.html')
+
+#################################################################################### [TRIP INFO]
+
+@bp.route('/trip')
+@login_required
+def trip():
+    return render_template('dashboard/trip.html')
+
+#################################################################################### [SHOW ANALYTICS IDEA]
 
 @bp.route('/list_hosting')
 @login_required
@@ -250,72 +265,3 @@ def update_property(id):
             return redirect(url_for('dashboard.list_property'))
     return render_template('dashboard/update_property.html', property=property)
 
-#################################################################################### [GUEST SEARCH]
-
-@bp.route('/search_property', methods=('GET', 'POST'))
-@login_required
-def search_property():
-    if request.method == 'POST':
-        stateInput =request.form['stateInput']
-        districtInput =request.form['districtInput']
-        ttl_room =request.form['ttl_room']
-        ttl_bathroom =request.form['ttl_bathroom']
-        aircond =request.form['aircond']
-        wifi =request.form['wifi']
-        washing =request.form['washing']
-        cooking =request.form['cooking']
-        homestay_rate =request.form['homestay_rate']
-
-        error = None
-
-        if not stateInput:
-            error = 'State name is required.'
-        
-        if not districtInput:
-            error = 'District name is required.'
-
-        if not ttl_room:
-            error = 'District name is required.'
-        
-        if not ttl_bathroom:
-            error = 'District name is required.'
-
-        if not aircond:
-            error = 'State name is required.'
-        
-        if not wifi:
-            error = 'District name is required.'
-
-        if not washing:
-            error = 'District name is required.'
-        
-        if not cooking:
-            error = 'District name is required.'
-
-        if not homestay_rate:
-            error = 'District name is required.'
-
-        if error is not None:
-            flash(error)
-
-    return render_template('dashboard/search_property.html')
-
-#################################################################################### [GUEST BOOKING]
-'''
-@bp.route('/book_property', methods = ['POST','GET'])
-@login_required
-def book_property():
-    db = get_db()
-    properties = db.execute(
-        'SELECT id,property_name,property_status,property_address,stateInput,districtInput,ttl_room,ttl_bathroom,aircond,wifi,washing,cooking,homestay_rate,phone'
-        ' FROM property'
-        #' ORDER BY id ASC'
-    ).fetchall()
-    return render_template('dashboard/book_property.html', properties=properties)
-'''
-#################################################################################### [TRAVELLING MAIN]
-
-@bp.route('/travelling')
-@login_required
-def travelling():
-    return render_template('dashboard/travelling.html')
