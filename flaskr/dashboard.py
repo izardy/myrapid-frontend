@@ -157,8 +157,8 @@ def update_idea(id):
         idea_strategy =request.form['idea_strategy']
 
         issue_depot =request.form['issue_depot']
-        issue_driver =request.form['issue_driver']
         issue_bus =request.form['issue_bus']
+        issue_driver =request.form['issue_driver']
         issue_trip =request.form['issue_trip']
         pitch_date =request.form['pitch_date']
 
