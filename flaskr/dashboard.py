@@ -106,7 +106,7 @@ def add_idea():
 
 #################################################################################### [DELETE idea]
 
-@bp.route('/<int:id>/delete_idea', methods=('POST',))
+@bp.route('/<int:id>/delete', methods=('POST',))
 @login_required
 def delete_idea(id):
     get_idea(id,)
