@@ -1,0 +1,130 @@
+{% extends 'base.html'%}
+
+{% block header %}
+  <h1>{% block title %}Add To Do{% endblock %}</h1>
+{% endblock %}
+
+{% block content%}
+<body>
+   <p></p>
+      <div class="container-fluid">
+
+         <div class="card rounded-3">
+            <div class="card-body p-4">
+
+               <h4 class="text-center"><span lang="en">Update Ideas</span></h4>
+
+               <p></p>
+
+
+               <form class="form-outline" method="post" style="font-size: small;">
+
+                  <div class="row mb-2">
+                     <div class="col-md-6 mb-2">
+                        <label for="idea_name"><span lang="en">Proposed Use Case</span></label>
+                        <input name="idea_name" id="idea_name" type="text" class="form-control" value="{{ idea['idea_name']}}" required readonly>
+                     </div>
+                     <div class="col-md-6 mb-2">
+                        <label for="idea_status"><span lang="en">Status</span></label>
+                        <input name="idea_status" id="idea_status" type="text" class="form-control" value="{{ idea['idea_status']}}" required readonly>
+                     </div>
+                  </div>
+
+                  <div class="row mb-2">
+                     <div class="col-md-12 mb-2">
+                        <label for="idea_statement"><span lang="en">Problem Statement</span></label>
+                        <textarea name="idea_statement" id="idea_statement" type="text" class="form-control" value="{{ request.form['idea_statement'] or idea['idea_statement'] }}" required></textarea>
+                     </div>
+                  </div>
+
+                  <div class="row mb-2">
+                     <div class="col-md-12 mb-2">
+                        <label for="idea_issue"><span lang="en">Issue Contributors</span></label>
+                        <textarea name="idea_issue" id="idea_issue" type="text" class="form-control" value="{{ request.form['idea_issue'] or idea['idea_issue'] }}" required></textarea>
+                     </div>
+                  </div>
+
+
+                  <div class="row mb-2">
+
+                        <div class="col-md-3 mb-2 input-group-md">
+                           <div>
+                              <p><span lang="en">Issue Related to issue_Depot</span></p>
+                              <label class="form-control mb-2">{{ idea['issue_depot'] }}</label>
+                              <input name="issue_depot" type="radio" id="issue_depot" value="yes" required="">
+                              <label for="issue_depot">Yes</label><br>
+                              <input name="issue_depot" type="radio" id="issue_depot"  value="no" required="">
+                              <label for="issue_depot">No</label><br>
+                           </div>
+                        </div>
+
+                     <div class="col-md-3 mb-2 input-group-md">
+                        <div>
+                           <p><span lang="en">Issue Related to issue_Driver</span></p>
+                           <label class="form-control mb-2">{{ idea['issue_driver'] }}</label>
+                           <input name="issue_driver" type="radio" id="issue_driver" value="yes" required="">
+                           <label for="issue_driver">Yes</label><br>
+                           <input name="issue_driver" type="radio" id="issue_driver"  value="no" required="">
+                           <label for="issue_driver">No</label><br>
+                        </div>
+                     </div>
+
+                     <div class="col-md-3 mb-2 input-group-md">
+                        <div>
+                           <p><span lang="en">Issue Related to issue_Bus</span></p>
+                           <label class="form-control mb-2">{{ idea['issue_bus'] }}</label>
+                           <input name="issue_bus" type="radio" id="issue_bus" value="yes" required="">
+                           <label for="issue_bus">Yes</label><br>
+                           <input name="issue_bus" type="radio" id="issue_bus"  value="no" required="">
+                           <label for="issue_bus">No</label><br>
+                        </div>
+                     </div>
+         
+                     
+                     <div class="col-md-3 mb-2 input-group-md">
+                        <div>
+                           <p><span lang="en">Issue Related to issue_Trip</span></p>
+                           <label class="form-control mb-2">{{ idea['issue_trip'] }}</label>
+                           <input name="issue_trip" type="radio" id="issue_trip" value="yes" required="">
+                           <label for="issue_trip">Yes</label><br>
+                           <input name="issue_trip" type="radio" id="issue_trip"  value="no" required="">
+                           <label for="issue_trip">No</label><br>
+                        </div>
+                     </div>
+
+                  </div>
+                  
+                  <div class="row mb-2">
+                     <div class="col-md-12 mb-2">
+                        <label for="idea_strategy"><span lang="en">Strategy Pitching</span></label>
+                        <textarea name="idea_strategy" id="idea_strategy" type="text" class="form-control" value="{{ request.form['idea_strategy'] or idea['idea_strategy'] }}" required></textarea>
+                     </div>
+                  </div>
+
+                  <div class="row mb-4">
+                     <div class="col-md-6 mb-2">
+                        <label for="pitch_date"><span lang="en">Date Proposed</span></label>
+                        <input name="pitch_date" id="pitch_date" class="form-control" type="date" value="{{ idea['pitch_date']}}" required readonly>
+                     </div>
+
+                     <div class="col-md-6 mb-2">
+                        <label for="phone"><span lang="en">Collab with Me</span></label>
+                        <input type="tel" id="phone" name="phone" class="form-control" value="{{ g.user['phone'] }}" required="" readonly>
+                     </div>
+                  </div>
+
+                  
+                  <div class="text-center mb-4">
+                     <button type="submit" class="btn btn-sm btn-primary" value="Save"><span lang="en">Submit</span></button>
+                  </div>
+
+               </form>
+
+            </div>
+         </div>
+
+      </div>
+</body>
+
+
+{% endblock%}

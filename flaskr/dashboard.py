@@ -66,108 +66,109 @@ def bas():
 def trip():
     return render_template('dashboard/trip.html')
 
-#################################################################################### [ADD PROPERTY]
+#################################################################################### [ADD idea]
 
-@bp.route('/add_property', methods = ['POST','GET'])
+@bp.route('/add_idea', methods = ['POST','GET'])
 @login_required
-def add_property():
+def add_idea():
     if request.method == 'POST':
-        property_name =request.form['property_name']
-        property_status=request.form['property_status']
-        property_address =request.form['property_address']
-        stateInput =request.form['stateInput']
-        districtInput =request.form['districtInput']
-        ttl_room =request.form['ttl_room']
-        ttl_bathroom =request.form['ttl_bathroom']
-        aircond =request.form['aircond']
-        wifi =request.form['wifi']
-        washing =request.form['washing']
-        cooking =request.form['cooking']
-        homestay_rate =request.form['homestay_rate']
+        idea_name =request.form['idea_name']
+        idea_status=request.form['idea_status']
+        idea_statement =request.form['idea_statement']
+        idea_issue =request.form['idea_issue']
+        idea_strategy =request.form['idea_strategy']
+
+        issue_depot =request.form['issue_depot']
+        issue_driver =request.form['issue_driver']
+        issue_bus =request.form['issue_bus']
+        issue_trip =request.form['issue_trip']
+        pitch_date =request.form['pitch_date']
         phone =request.form['phone']
+
         error = None
 
-        if not property_name:
-            error = 'Property name is required.'
-        elif not property_address:
-            error = 'Property address is required.'
+        if not idea_name:
+            error = 'idea name is required.'
+        elif not idea_statement:
+            error = 'idea statement is required.'
 
         if error is not None:
             flash(error)
         else:
             db=get_db()
             db.execute(
-                "INSERT INTO property (property_name,property_status,property_address,stateInput,districtInput,ttl_room,ttl_bathroom,aircond,wifi,washing,cooking,homestay_rate,phone) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                (property_name, property_status, property_address, stateInput, districtInput, ttl_room, ttl_bathroom, aircond, wifi, washing, cooking, homestay_rate, phone),
+                "INSERT INTO idea (idea_name,idea_status,idea_statement,idea_issue,idea_strategy,issue_depot,issue_driver,issue_bus,issue_trip,pitch_date,phone) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                (idea_name,idea_status,idea_statement,idea_issue,idea_strategy,issue_depot,issue_driver,issue_bus,issue_trip,pitch_date,phone),
             )
             db.commit()
-            return redirect(url_for('dashboard.list_property'))
-    return render_template('dashboard/add_property.html')
+            return redirect(url_for('dashboard.list_idea'))
+    return render_template('dashboard/add_idea.html')
 
-#################################################################################### [DELETE PROPERTY]
+#################################################################################### [DELETE idea]
 
-@bp.route('/<int:id>/delete_property', methods=('POST',))
+@bp.route('/<int:id>/delete_idea', methods=('POST',))
 @login_required
-def delete_property(id):
+def delete_idea(id):
     get_task(id,)
     db = get_db()
     db.execute('DELETE FROM todos WHERE id = ?', (id,))
     db.commit()
-    return redirect(url_for('dashboard.list_property'))
+    return redirect(url_for('dashboard.list_idea'))
 
-#################################################################################### [LIST PROPERTY]
+#################################################################################### [LIST idea]
 
-@bp.route('/list_property')
+@bp.route('/list_idea')
 @login_required
-def list_property():
+def list_idea():
     db = get_db()
-    properties = db.execute(
-        'SELECT id,property_name,property_status,property_address,stateInput,districtInput,ttl_room,ttl_bathroom,aircond,wifi,washing,cooking,homestay_rate,phone'
-        ' FROM property'
+    ideas = db.execute(
+        'SELECT id,idea_name,idea_status,idea_statement,idea_issue,idea_strategy,issue_depot,issue_driver,issue_trip,pitch_date,phone'
+        ' FROM idea'
         ' WHERE phone = ?',(g.user['phone'],)
         #' ORDER BY id ASC'
     ).fetchall()
-    return render_template('dashboard/list_property.html', properties=properties)
+    return render_template('dashboard/list_idea.html', ideas=ideas)
 
 ####################################################################################
 
-def get_property(id):
-    property = get_db().execute(
-        'SELECT id,property_name,property_status,property_address,stateInput,districtInput,ttl_room,ttl_bathroom,aircond,wifi,washing,cooking,homestay_rate,phone'
-        ' FROM property'
+def get_idea(id):
+    idea = get_db().execute(
+        'SELECT id,idea_name,idea_status,idea_statement,idea_issue,idea_strategy,issue_depot,issue_driver,issue_trip,pitch_date,phone'
+        ' FROM idea'
         ' WHERE id = ?',(id,)
     ).fetchone()
 
-    if property is None:
-        abort(404, f"Property id {id} doesn't exist.")
+    if idea is None:
+        abort(404, f"idea id {id} doesn't exist.")
 
-    return property
+    return idea
 
-#################################################################################### [UPDATE PROPERTY]
+#################################################################################### [UPDATE idea]
 
-@bp.route('/<int:id>/update_property', methods=('GET', 'POST'))
+@bp.route('/<int:id>/update_idea', methods=('GET', 'POST'))
 @login_required
-def update_property(id):
-    property = get_property(id,)
+def update_idea(id):
+    idea = get_idea(id,)
     if request.method == 'POST':
-        property_name =request.form['property_name']
-        property_address =request.form['property_address']
-        stateInput =request.form['stateInput']
-        districtInput =request.form['districtInput']
-        ttl_room =request.form['ttl_room']
-        ttl_bathroom =request.form['ttl_bathroom']
-        aircond =request.form['aircond']
-        wifi =request.form['wifi']
-        washing =request.form['washing']
-        cooking =request.form['cooking']
-        homestay_rate =request.form['homestay_rate']
+        idea_name =request.form['idea_name']
+        idea_status=request.form['idea_status']
+        idea_statement =request.form['idea_statement']
+        idea_issue =request.form['idea_issue']
+        idea_strategy =request.form['idea_strategy']
+
+        issue_depot =request.form['issue_depot']
+        issue_driver =request.form['issue_driver']
+        issue_bus =request.form['issue_bus']
+        issue_trip =request.form['issue_trip']
+        pitch_date =request.form['pitch_date']
+
         error = None
 
-        if not property_name:
-            error = 'Property name is required.'
+        if not idea_name:
+            error = 'idea name is required.'
         
-        if not property_address:
-            error = 'Property address is required.'
+        if not idea_statement:
+            error = 'idea address is required.'
 
         if error is not None:
             flash(error)
@@ -175,11 +176,11 @@ def update_property(id):
         else:
             db=get_db()
             db.execute(
-                'UPDATE property SET property_name = ?, property_address = ?,stateInput = ?,districtInput = ?,ttl_room = ?,ttl_bathroom = ?,aircond = ?,wifi = ?,washing = ?,cooking = ?,homestay_rate = ?'
+                'UPDATE idea SET idea_name = ?, idea_status = ?,idea_statement = ?,idea_issue = ?,idea_strategy = ?,issue_depot = ?,issue_driver = ?,issue_bus = ?,issue_trip = ?,pitch_date = ?'
                 ' WHERE id = ?',
-                (property_name, property_address, stateInput, districtInput, ttl_room, ttl_bathroom, aircond, wifi, washing, cooking, homestay_rate, id),
+                (idea_name,idea_status,idea_statement,idea_issue,idea_strategy,issue_depot,issue_driver,issue_trip,pitch_date,id),
             )
             db.commit()
-            return redirect(url_for('dashboard.list_property'))
-    return render_template('dashboard/update_property.html', property=property)
+            return redirect(url_for('dashboard.list_idea'))
+    return render_template('dashboard/update_idea.html', idea=idea)
 

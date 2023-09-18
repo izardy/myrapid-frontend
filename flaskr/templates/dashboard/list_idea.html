@@ -8,7 +8,7 @@
           <div class="card rounded-3">
             <div class="card-body p-2">
               <div class="col-12">
-                <a href="{{ url_for('dashboard.add_property') }}">
+                <a href="{{ url_for('dashboard.add_idea') }}">
                 <button type="button" class="btn btn-sm btn-primary"><span lang="en">Add Ideas</span></button>
                 </a>
               </div>
@@ -43,12 +43,12 @@
 
                   
                   <tbody>
-                    {% for property in properties %}  
+                    {% for idea in ideas %}  
                     <tr colspan="3" style="font-size: small; text-transform:uppercase; background-color:cadetblue;"> 
-                      <td>{{ property['id'] }}</td>
-                      <td>{{ property['property_name'] }}</td>
-                      <td>{{ property['id'] }}</td>
-                      <td>{{ property['property_status'] }}</td>
+                      <td>{{ idea['id'] }}</td>
+                      <td>{{ idea['idea_name'] }}</td>
+                      <td>{{ idea['id'] }}</td>
+                      <td>{{ idea['idea_status'] }}</td>
                     </tr>
 
                     <tr>
@@ -57,31 +57,31 @@
                           <tbody>
                             <tr>
                               <th><span lang="en">Problem Statement</span></th>
-                              <td style="text-transform:uppercase">{{ property['property_address'] }}</td>
+                              <td style="text-transform:uppercase">{{ idea['idea_statement'] }}</td>
                             </tr>
                             <tr>
                               <th><span lang="en">Issue Contributors</span></th>
-                              <td style="text-transform:uppercase">{{ property['property_address'] }}</td>
+                              <td style="text-transform:uppercase">{{ idea['idea_issue'] }}</td>
                             </tr>
                             <tr>
                               <th><span lang="en">Issue Related to Depot</span></th>
-                              <td style="text-transform:uppercase">{{ property['aircond'] }}</td>
+                              <td style="text-transform:uppercase">{{ idea['issue_depot'] }}</td>
                             </tr>
                             <tr>
-                              <th><span lang="en">Issue Related to Driver</span><span lang="ms">Wifi</span></th>
-                              <td style="text-transform:uppercase">{{ property['wifi'] }}</td>
+                              <th><span lang="en">Issue Related to Driver</span></th>
+                              <td style="text-transform:uppercase">{{ idea['issue_driver'] }}</td>
                             </tr>
                             <tr>
-                              <th><span lang="en">Issue Related to Bus</span><span lang="ms">Mesin Basuh</span></th>
-                              <td style="text-transform:uppercase">{{ property['washing'] }}</td>
+                              <th><span lang="en">Issue Related to Bus</span></th>
+                              <td style="text-transform:uppercase">{{ idea['issue_bus'] }}</td>
                             </tr>
                             <tr>
-                              <th><span lang="en">Issue Related to Trip</span><span lang="ms">Kemudahan Memasak</span></th>
-                              <td style="text-transform:uppercase">{{ property['cooking'] }}</td>
+                              <th><span lang="en">Issue Related to Trip</span></th>
+                              <td style="text-transform:uppercase">{{ idea['issue_trip'] }}</td>
                             </tr>
                             <tr>
                               <th><span lang="en">Strategy Pitching</span></th>
-                              <td style="text-transform:uppercase">{{ property['property_address'] }}</td>
+                              <td style="text-transform:uppercase">{{ idea['idea_strategy'] }}</td>
                             </tr>
                           </tbody>
                         </table>
@@ -91,8 +91,8 @@
                    <tr>
                       <td colspan="12">
                         <table class="table table-borderless mb-0 text-center">
-                          <td><a href="{{ url_for('dashboard.update_property',id=property['id']) }}">
-                          <button type="submit" class="btn btn-sm btn-success"><span lang="en">Update</span><span lang="ms">Kemaskini</span></button></a></td>                          
+                          <td><a href="{{ url_for('dashboard.update_idea',id=idea['id']) }}">
+                          <button type="submit" class="btn btn-sm btn-success"><span lang="en">Update</span></button></a></td>                          
                         </table>
                       </td>              
                     </tr>
