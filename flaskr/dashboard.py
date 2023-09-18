@@ -176,7 +176,7 @@ def update_idea(id):
         else:
             db=get_db()
             db.execute(
-                'UPDATE idea SET idea_name = ?, idea_status = ?,idea_statement = ?,idea_issue = ?,idea_strategy = ?,issue_depot = ?,issue_bus = ?,issue_driver = ?,issue_bus = ?,issue_trip = ?,pitch_date = ?'
+                'UPDATE idea SET idea_name = ?, idea_status = ?,idea_statement = ?,idea_issue = ?,idea_strategy = ?,issue_depot = ?,issue_bus = ?,issue_driver = ?,issue_trip = ?,pitch_date = ?'
                 ' WHERE id = ?',
                 (idea_name,idea_status,idea_statement,idea_issue,idea_strategy,issue_depot,issue_bus,issue_driver,issue_trip,pitch_date,id),
             )
