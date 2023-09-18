@@ -29,7 +29,8 @@
                 </div>
 
                 <p></p>
-        
+                
+                <div>
                 <table class="table table-hover mb-2">
 
                   <thead>
@@ -44,11 +45,11 @@
                   
                   <tbody>
                     {% for idea in ideas %}  
-                    <tr colspan="4" style="font-size: small; text-transform:uppercase; background-color:cadetblue;"> 
-                      <td>{{ idea['id'] }}</td>
-                      <td>{{ idea['idea_name'] }}</td>
-                      <td>{{ idea['pitch_date'] }}</td>
-                      <td>{{ idea['idea_status'] }}</td>
+                    <tr colspan="4" style="font-size: small; text-transform:uppercase; background-color:#1b3963;"> 
+                      <td style="color:white;font-weight: bold;">{{ idea['id'] }}</td>
+                      <td style="color:white;font-weight: bold;">{{ idea['idea_name'] }}</td>
+                      <td style="color:white;font-weight: bold;">{{ idea['pitch_date'] }}</td>
+                      <td style="color:white;font-weight: bold;">{{ idea['idea_status'] }}</td>
                     </tr>
 
                     <tr>
@@ -103,7 +104,7 @@
                   </tbody>
                   
                 </table> 
-                    
+                </div>
               </div>
             </div>
         </div>
