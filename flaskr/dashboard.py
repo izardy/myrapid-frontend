@@ -109,7 +109,7 @@ def add_idea():
 @bp.route('/<int:id>/delete_idea', methods=('POST',))
 @login_required
 def delete_idea(id):
-    get_task(id,)
+    get_idea(id,)
     db = get_db()
     db.execute('DELETE FROM todos WHERE id = ?', (id,))
     db.commit()

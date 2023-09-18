@@ -97,6 +97,15 @@
                       </td>              
                     </tr>
 
+                    <tr>
+                      <td colspan="12">
+                        <table class="table table-borderless mb-0 text-center">
+                          <td><a href="{{ url_for('dashboard.delete_idea',id=idea['id']) }}">
+                          <button type="submit" class="btn btn-sm btn-danger"><span lang="en">Update</span></button></a></td>                          
+                        </table>
+                      </td>              
+                    </tr>
+
                     {% endfor %}  
                   </tbody>
                   
