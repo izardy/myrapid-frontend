@@ -106,9 +106,9 @@ def add_idea():
 
 #################################################################################### [DELETE idea]
 
-@bp.route('/<int:id>/delete', methods=('POST',))
+@bp.route('/<int:id>/delete', methods=(['POST', 'GET']))
 @login_required
-def delete_idea(id):
+def delete(id):
     get_idea(id,)
     db = get_db()
     db.execute('DELETE FROM idea WHERE id = ?', (id,))
@@ -122,7 +122,7 @@ def delete_idea(id):
 def list_idea():
     db = get_db()
     ideas = db.execute(
-        'SELECT id,idea_name,idea_status,idea_statement,idea_issue,idea_strategy,issue_depot,issue_driver,issue_trip,pitch_date,phone'
+        'SELECT id,idea_name,idea_status,idea_statement,idea_issue,idea_strategy,issue_depot,issue_driver,issue_bus,issue_trip,pitch_date,phone'
         ' FROM idea'
         ' WHERE phone = ?',(g.user['phone'],)
         #' ORDER BY id ASC'
@@ -133,7 +133,7 @@ def list_idea():
 
 def get_idea(id):
     idea = get_db().execute(
-        'SELECT id,idea_name,idea_status,idea_statement,idea_issue,idea_strategy,issue_depot,issue_driver,issue_trip,pitch_date,phone'
+        'SELECT id,idea_name,idea_status,idea_statement,idea_issue,idea_strategy,issue_depot,issue_driver,issue_bus,issue_trip,pitch_date,phone'
         ' FROM idea'
         ' WHERE id = ?',(id,)
     ).fetchone()

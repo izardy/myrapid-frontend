@@ -93,7 +93,7 @@
                         <table class="table table-borderless mb-0 text-center">
                           <td>
                             <a href="{{ url_for('dashboard.update_idea',id=idea['id']) }}"><button type="submit" class="btn btn-sm btn-success"><span lang="en">Update</span></button></a>
-                            <a href="{{ url_for('dashboard.delete_idea',id=idea['id']) }}" method="post"><input type="submit" class="btn btn-sm btn-danger" value="Delete" onclick="return confirm('Are you sure?');""></a>
+                            <a href="{{ url_for('dashboard.delete',id=idea['id']) }}" method="post"><input type="submit" class="btn btn-sm btn-danger" value="Delete" onclick="return confirm('Are you sure?');""></a>
                           </td>                              
                         </table>
                       </td>              
