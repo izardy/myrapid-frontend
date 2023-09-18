@@ -111,7 +111,7 @@ def add_idea():
 def delete_idea(id):
     get_idea(id,)
     db = get_db()
-    db.execute('DELETE FROM todos WHERE id = ?', (id,))
+    db.execute('DELETE FROM idea WHERE id = ?', (id,))
     db.commit()
     return redirect(url_for('dashboard.list_idea'))
 
