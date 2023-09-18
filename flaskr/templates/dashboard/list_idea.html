@@ -33,7 +33,7 @@
                 <table class="table table-hover mb-2">
 
                   <thead>
-                    <tr colspan="3" style="font-size: small;"> 
+                    <tr colspan="4" style="font-size: small;"> 
                       <th scope="col">ID No.</th>
                       <th scope="col"><span lang="en">Proposed Use Case</span></th>
                       <th scope="col"><span lang="en">Proposed Date</span></th>
@@ -44,10 +44,10 @@
                   
                   <tbody>
                     {% for idea in ideas %}  
-                    <tr colspan="3" style="font-size: small; text-transform:uppercase; background-color:cadetblue;"> 
+                    <tr colspan="4" style="font-size: small; text-transform:uppercase; background-color:cadetblue;"> 
                       <td>{{ idea['id'] }}</td>
                       <td>{{ idea['idea_name'] }}</td>
-                      <td>{{ idea['id'] }}</td>
+                      <td>{{ idea['pitch_date'] }}</td>
                       <td>{{ idea['idea_status'] }}</td>
                     </tr>
 
