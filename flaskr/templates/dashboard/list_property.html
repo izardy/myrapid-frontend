@@ -9,7 +9,7 @@
             <div class="card-body p-2">
               <div class="col-12">
                 <a href="{{ url_for('dashboard.add_property') }}">
-                <button type="button" class="btn btn-sm btn-primary"><span lang="en">Add Property</span><span lang="ms">Tambah Rumah Inap</span></button>
+                <button type="button" class="btn btn-sm btn-primary"><span lang="en">Add Ideas</span>
                 </a>
               </div>
             </div>
@@ -24,7 +24,7 @@
                 
                 <div class="row text-center">
                   <div class="col-12">
-                    <h4><span lang="en">Property Infomation</span><span lang="ms">Maklumat Rumah Inap</span></h4>
+                    <h4><span lang="en">List of Proposed Analytics Ideas</span></h4>
                   </div>
                 </div>
 
@@ -34,8 +34,8 @@
                   <thead>
                     <tr colspan="3" style="font-size: small;"> 
                       <th scope="col">ID No.</th>
-                      <th scope="col"><span lang="en">Property Name</span><span lang="ms">Nama Rumah Inap</span></th>
-                      <th scope="col"><span lang="en">Status</span><span lang="ms">Status</span></th>
+                      <th scope="col"><span lang="en">Proposed Use Case</span></th>
+                      <th scope="col"><span lang="en">Status</span></th>
                     </tr>
                   </thead>
 
@@ -53,47 +53,27 @@
                         <table class="table table-hover table-borderless mb-0 text-left" style="font-size: small;">
                           <tbody>
                             <tr>
-                              <th><span lang="en">Address</span><span lang="ms">Alamat</span></th>
+                              <th><span lang="en">Problem Statement</span></th>
                               <td style="text-transform:uppercase">{{ property['property_address'] }}</td>
                             </tr>
                             <tr>
-                              <th><span lang="en">Phone</span><span lang="ms">Phone</span></th>
+                              <th><span lang="en">Issue Contributors</span></th>
                               <td style="text-transform:uppercase">{{ property['phone'] }}</td>
                             </tr>
                             <tr>
-                              <th><span lang="en">Daily Rate</span><span lang="ms">Kadar Sewa Harian</span></th>
-                              <td style="text-transform:uppercase">RM {{ property['homestay_rate'] }}</td>
-                            </tr>
-                            <tr>
-                              <th><span lang="en">State</span><span lang="ms">Negeri</span></th>
-                              <td style="text-transform:uppercase">{{ property['stateInput'] }}</td>
-                            </tr>
-                            <tr>
-                              <th><span lang="en">District</span><span lang="ms">Daerah</span></th>
-                              <td style="text-transform:uppercase">{{ property['districtInput'] }}</td>
-                            </tr>
-                            <tr>
-                              <th><span lang="en">Room</span><span lang="ms">Bilik</span></th>
-                              <td style="text-transform:uppercase">{{ property['ttl_room'] }}</td>
-                            </tr>
-                            <tr>
-                              <th><span lang="en">Bathrooms</span><span lang="ms">Bilik Air</span></label></th>
-                              <td style="text-transform:uppercase">{{ property['ttl_bathroom'] }}</td>
-                            </tr>
-                            <tr>
-                              <th><span lang="en">Aircond</span><span lang="ms">Penghawa Dingin</span></th>
+                              <th><span lang="en">Issue Related to Depot</span></th>
                               <td style="text-transform:uppercase">{{ property['aircond'] }}</td>
                             </tr>
                             <tr>
-                              <th><span lang="en">Wifi</span><span lang="ms">Wifi</span></th>
+                              <th><span lang="en">Issue Related to Driver</span><span lang="ms">Wifi</span></th>
                               <td style="text-transform:uppercase">{{ property['wifi'] }}</td>
                             </tr>
                             <tr>
-                              <th><span lang="en">Washing Machine</span><span lang="ms">Mesin Basuh</span></th>
+                              <th><span lang="en">Issue Related to Bus</span><span lang="ms">Mesin Basuh</span></th>
                               <td style="text-transform:uppercase">{{ property['washing'] }}</td>
                             </tr>
                             <tr>
-                              <th><span lang="en">Cooking Utensils</span><span lang="ms">Kemudahan Memasak</span></th>
+                              <th><span lang="en">Issue Related to Trip</span><span lang="ms">Kemudahan Memasak</span></th>
                               <td style="text-transform:uppercase">{{ property['cooking'] }}</td>
                             </tr>
                           </tbody>
