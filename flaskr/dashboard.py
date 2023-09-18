@@ -79,8 +79,8 @@ def add_idea():
         idea_strategy =request.form['idea_strategy']
 
         issue_depot =request.form['issue_depot']
-        issue_driver =request.form['issue_driver']
         issue_bus =request.form['issue_bus']
+        issue_driver =request.form['issue_driver']
         issue_trip =request.form['issue_trip']
         pitch_date =request.form['pitch_date']
         phone =request.form['phone']
@@ -97,8 +97,8 @@ def add_idea():
         else:
             db=get_db()
             db.execute(
-                "INSERT INTO idea (idea_name,idea_status,idea_statement,idea_issue,idea_strategy,issue_depot,issue_driver,issue_bus,issue_trip,pitch_date,phone) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                (idea_name,idea_status,idea_statement,idea_issue,idea_strategy,issue_depot,issue_driver,issue_bus,issue_trip,pitch_date,phone),
+                "INSERT INTO idea (idea_name,idea_status,idea_statement,idea_issue,idea_strategy,issue_depot,issue_bus,issue_driver,issue_trip,pitch_date,phone) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                (idea_name,idea_status,idea_statement,idea_issue,idea_strategy,issue_depot,issue_bus,issue_driver,issue_trip,pitch_date,phone),
             )
             db.commit()
             return redirect(url_for('dashboard.list_idea'))
