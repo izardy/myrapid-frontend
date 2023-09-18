@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <body>
+      <p></p>
+
+        <div class="container-fluid">
+          <div class="card rounded-3">
+            <div class="card-body p-2">
+              <div class="col-12">
+                <a href="{{ url_for('dashboard.add_property') }}">
+                <button type="button" class="btn btn-sm btn-primary"><span lang="en">Add Property</span><span lang="ms">Tambah Rumah Inap</span></button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p></p>
+
+        <div class="container-fluid">
+            <div class="card rounded-3">
+              <div class="card-body p-4">
+                
+                <div class="row text-center">
+                  <div class="col-12">
+                    <h4><span lang="en">Property Infomation</span><span lang="ms">Maklumat Rumah Inap</span></h4>
+                  </div>
+                </div>
+
+                <p></p>
+        
+                <table class="table table-hover mb-2">
+                  <thead>
+                    <tr colspan="3" style="font-size: small;"> 
+                      <th scope="col">ID No.</th>
+                      <th scope="col"><span lang="en">Property Name</span><span lang="ms">Nama Rumah Inap</span></th>
+                      <th scope="col"><span lang="en">Status</span><span lang="ms">Status</span></th>
+                    </tr>
+                  </thead>
+
+                  
+                  <tbody>
+                    {% for property in properties %}  
+                    <tr colspan="3" style="font-size: small; text-transform:uppercase; background-color:cadetblue;"> 
+                      <td>{{ property['id'] }}</td>
+                      <td>{{ property['property_name'] }}</td>
+                      <td>{{ property['property_status'] }}</td>
+                    </tr>
+
+                    <tr>
+                      <td colspan="3">
+                        <table class="table table-hover table-borderless mb-0 text-left" style="font-size: small;">
+                          <tbody>
+                            <tr>
+                              <th><span lang="en">Address</span><span lang="ms">Alamat</span></th>
+                              <td style="text-transform:uppercase">{{ property['property_address'] }}</td>
+                            </tr>
+                            <tr>
+                              <th><span lang="en">Phone</span><span lang="ms">Phone</span></th>
+                              <td style="text-transform:uppercase">{{ property['phone'] }}</td>
+                            </tr>
+                            <tr>
+                              <th><span lang="en">Daily Rate</span><span lang="ms">Kadar Sewa Harian</span></th>
+                              <td style="text-transform:uppercase">RM {{ property['homestay_rate'] }}</td>
+                            </tr>
+                            <tr>
+                              <th><span lang="en">State</span><span lang="ms">Negeri</span></th>
+                              <td style="text-transform:uppercase">{{ property['stateInput'] }}</td>
+                            </tr>
+                            <tr>
+                              <th><span lang="en">District</span><span lang="ms">Daerah</span></th>
+                              <td style="text-transform:uppercase">{{ property['districtInput'] }}</td>
+                            </tr>
+                            <tr>
+                              <th><span lang="en">Room</span><span lang="ms">Bilik</span></th>
+                              <td style="text-transform:uppercase">{{ property['ttl_room'] }}</td>
+                            </tr>
+                            <tr>
+                              <th><span lang="en">Bathrooms</span><span lang="ms">Bilik Air</span></label></th>
+                              <td style="text-transform:uppercase">{{ property['ttl_bathroom'] }}</td>
+                            </tr>
+                            <tr>
+                              <th><span lang="en">Aircond</span><span lang="ms">Penghawa Dingin</span></th>
+                              <td style="text-transform:uppercase">{{ property['aircond'] }}</td>
+                            </tr>
+                            <tr>
+                              <th><span lang="en">Wifi</span><span lang="ms">Wifi</span></th>
+                              <td style="text-transform:uppercase">{{ property['wifi'] }}</td>
+                            </tr>
+                            <tr>
+                              <th><span lang="en">Washing Machine</span><span lang="ms">Mesin Basuh</span></th>
+                              <td style="text-transform:uppercase">{{ property['washing'] }}</td>
+                            </tr>
+                            <tr>
+                              <th><span lang="en">Cooking Utensils</span><span lang="ms">Kemudahan Memasak</span></th>
+                              <td style="text-transform:uppercase">{{ property['cooking'] }}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+
+                   <tr>
+                      <td colspan="12">
+                        <table class="table table-borderless mb-0 text-center">
+                          <td><a href="{{ url_for('dashboard.update_property',id=property['id']) }}">
+                          <button type="submit" class="btn btn-sm btn-success"><span lang="en">Update</span><span lang="ms">Kemaskini</span></button></a></td>                          
+                        </table>
+                      </td>              
+                    </tr>
+
+                    {% endfor %}  
+                  </tbody>
+                  
+                </table> 
+                    
+              </div>
+            </div>
+        </div>
+    </body>
+{% endblock %}
