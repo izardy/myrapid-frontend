@@ -47,7 +47,7 @@ def index():
 
 #################################################################################### [CAPTAIN INFO]
 
-@bp.route('/depot')
+@bp.route('/captain')
 @login_required
 def captain():
     return render_template('dashboard/captain.html')
